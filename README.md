@@ -1,47 +1,47 @@
 # Kondo 🧹
 
-Cleans `node_modules`, `target`, `build`, and friends from your projects.
+清理项目中的 `node_modules`、`target`、`build` 等目录。
 
-Excellent if
+非常适合以下情况：
 
-- 💾 You want to back up your code but don't want to include GBs of dependencies
-- 🧑‍🎨 You try out lots of projects but hate how much space they occupy
-- ⚡️ You like keeping your disks lean and zippy
+- 💾 你想备份代码，但不想包含数GB的依赖项
+- 🧑‍🎨 你尝试了很多项目，但讨厌它们占用的空间
+- ⚡️ 你喜欢保持你的磁盘精简且快速
 
 <br />
 
 <p align="center">
-    <strong>20+ Supported Project Types</strong>
+    <strong>支持20+种项目类型</strong>
 </p>
 
 <p align="center">
-<a href="https://doc.rust-lang.org/cargo/">Cargo</a> (Rust),
-<a href="https://cmake.org">CMake</a> (C, C++),
-<a href="https://getcomposer.org/">Composer</a> (PHP),
-<a href="https://elixir-lang.org/">Elixir</a>,
+<a href="https://doc.rust-lang.org/cargo/">Cargo</a>  (Rust),
+<a href="https://cmake.org">CMake</a>  (C, C++),
+<a href="https://getcomposer.org/">Composer</a>  (PHP),
+<a href="https://elixir-lang.org/">Elixir</a>, 
 <a href="https://godotengine.org/">Godot 4.x</a> (C#, GDScript)
 </p>
 <p align="center">
-<a href="https://gradle.com/">Gradle</a> (Java)
+<a href="https://gradle.com/">Gradle</a>  (Java)
 <a href="https://jupyter.org/">Jupyter Notebook</a> (Python),
-<a href="https://pixi.sh/">Pixi</a> (Python),
-<a href="https://maven.apache.org/">Maven</a> (Java),
-<a href="https://nodejs.org/">Node</a> (JavaScript)
+<a href="https://pixi.sh/">Pixi</a>  (Python),
+<a href="https://maven.apache.org/">Maven</a>  (Java),
+<a href="https://nodejs.org/">Node</a>  (JavaScript)
 </p>
 <p align="center">
-<a href="https://dart.dev/">Pub</a> (Dart),
-<a href="https://www.python.org/">Python</a>
-<a href="https://www.scala-sbt.org/">SBT</a> (Scala),
-<a href="https://docs.haskellstack.org/">Stack</a> (Haskell),
-<a href="https://cabal.readthedocs.io/en/stable/">Cabal</a> (Haskell),
-<a href="https://swift.org/">Swift</a>
+<a href="https://dart.dev/">Pub</a>  (Dart),
+<a href="https://www.python.org/">Python</a> 
+<a href="https://www.scala-sbt.org/">SBT</a>  (Scala),
+<a href="https://docs.haskellstack.org/">Stack</a>  (Haskell),
+<a href="https://cabal.readthedocs.io/en/stable/">Cabal</a>  (Haskell),
+<a href="https://swift.org/">Swift</a> 
 </p>
 <p align="center">
-<a href="https://unity.com/">Unity</a> (C#),
+<a href="https://unity.com/">Unity</a>  (C#),
 <a href="https://www.unrealengine.com/">Unreal Engine</a> (C++),
-<a href="https://ziglang.org/">Zig</a>,
-<a href="https://dotnet.microsoft.com/">.NET</a> (C#, F#)
-<a href="https://turbo.build/repo">Turborepo</a> (JavaScript)
+<a href="https://ziglang.org/">Zig</a>, 
+<a href="https://dotnet.microsoft.com/">.NET</a>  (C#, F#)
+<a href="https://turbo.build/repo">Turborepo</a>  (JavaScript)
 </p>
 
 <img width="972" alt="kondo cli cleaning projects" src="https://user-images.githubusercontent.com/2771466/222950622-475bc6cc-7b91-47c2-86b2-5948bee4fe8e.png">
@@ -49,26 +49,26 @@ Excellent if
 <img width="1112" alt="kondo gui displaying projects" src="https://user-images.githubusercontent.com/2771466/222950846-964162a1-80c9-4cdf-a9a8-d818ba4cb34a.png">
 
 <details>
-<summary>CLI Video</summary>
+<summary>CLI 视频</summary>
 
-[kondo-cli.webm](https://user-images.githubusercontent.com/2771466/222949617-0ed621bc-ac4e-495a-9165-036a3a597d34.webm)
+[kondo-cli.webm](https://user-images.githubusercontent.com/2771466/222949617-0ed621bc-ac4e-495a-9165-036a3a597d34.webm) 
 
 </details>
 
 <details>
-<summary>GUI Video</summary>
+<summary>GUI 视频</summary>
 
-[kondo-ui.webm](https://user-images.githubusercontent.com/2771466/222951044-13484711-6107-45d4-aaa3-3140bbbba898.webm)
+[kondo-ui.webm](https://user-images.githubusercontent.com/2771466/222951044-13484711-6107-45d4-aaa3-3140bbbba898.webm) 
 
 </details>
 
-## Installation
+## 安装
 
-> **Warning**
+> **警告**
 >
-> Kondo is [_essentially_](https://github.com/tbillington/kondo/blob/a7af95484d364bbb12eb3b40b0d860424dd1b714/kondo-lib/src/lib.rs#L236) `rm -rf` with a prompt. Use at your own discretion. Always have a backup of your projects.
+> Kondo 本质上是带有提示的 `rm -rf`。请自行斟酌使用。请始终备份你的项目。
 
-### Command Line
+### 命令行
 
 **winget**
 
@@ -94,24 +94,24 @@ sudo port install kondo
 pacman -S kondo
 ```
 
-**Source**
+**源代码**
 
-Requires [Rust](https://www.rust-lang.org/tools/install).
+需要 [Rust](https://www.rust-lang.org/tools/install)。
 
 ```sh
-git clone https://github.com/tbillington/kondo.git
+git clone https://github.com/tbillington/kondo.git 
 cargo install --path kondo/kondo
 ```
 
-**Others**
+**其他**
 
-Binaries available on the [releases page](https://github.com/tbillington/kondo/releases).
+二进制文件可在[发布页面](https://github.com/tbillington/kondo/releases)上找到。
 
-<a href="https://repology.org/project/kondo/versions">
-    <img src="https://repology.org/badge/vertical-allrepos/kondo.svg" alt="Packaging status">
+<a href="https://repology.org/project/kondo/versions"> 
+    <img src="https://repology.org/badge/vertical-allrepos/kondo.svg"  alt="打包状态">
 </a>
 
-### Graphic User Interface
+### 图形用户界面
 
 **Windows**
 
@@ -126,65 +126,65 @@ winget install kondo-ui
 pacman -S kondo-ui
 ```
 
-**Source**
+**源代码**
 
-Requires [rust](https://www.rust-lang.org/tools/install). You may need [platform specific dependencies on linux](https://github.com/xi-editor/druid#platform-notes).
+需要 [rust](https://www.rust-lang.org/tools/install)。 你可能需要[Linux平台上特定的依赖](https://github.com/xi-editor/druid#platform-notes)。
 
 ```sh
-git clone https://github.com/tbillington/kondo.git
+git clone https://github.com/tbillington/kondo.git 
 cargo install --path kondo/kondo-ui
 ```
 
-Binaries available on the [releases page](https://github.com/tbillington/kondo/releases).
+二进制文件可在[发布页面](https://github.com/tbillington/kondo/releases)上找到。
 
-<a href="https://repology.org/project/rust:kondo-ui/versions">
-    <img src="https://repology.org/badge/vertical-allrepos/rust:kondo-ui.svg" alt="Packaging status">
+<a href="https://repology.org/project/rust:kondo-ui/versions"> 
+    <img src="https://repology.org/badge/vertical-allrepos/rust:kondo-ui.svg"  alt="打包状态">
 </a>
 
-## Usage
+## 使用
 
-> **Warning**
+> **警告**
 >
-> Kondo is [_essentially_](https://github.com/tbillington/kondo/blob/a7af95484d364bbb12eb3b40b0d860424dd1b714/kondo-lib/src/lib.rs#L236) `rm -rf` with a prompt. Use at your own discretion. Always have a backup of your projects.
+> Kondo 本质上是带有提示的 `rm -rf`。请自行斟酌使用。请始终备份你的项目。
 
-### Command Line Interface
+### 命令行界面
 
-Running `kondo` without a directory specified will run in the current directory.
+运行 `kondo` 而不指定目录将在当前目录运行。
 
 ```sh
 kondo
 ```
 
-Supplying a path will tell `kondo` where to start. Multiple paths are supported.
+提供路径将告诉 `kondo` 从哪里开始。支持多个路径。
 
 ```sh
 kondo code/my_project code/my_project_2
 ```
 
-Passing a time will filter projects to those that haven't been modified for at least the specified period. See `kondo --help` for the full list of options.
+传递一个时间将过滤出至少指定时间未被修改的项目。查看 `kondo --help` 获取完整选项列表。
 
 ```sh
-kondo --older 3M # only projects with last modified greater than 3 months
-kondo -o3M # shorthand
+kondo --older 3M # 仅选择最后修改时间超过3个月的项目
+kondo -o3M # 简写形式
 ```
 
-More options such as quiet mode, following symlinks, and filesystem restriction are viewable with `kondo --help`.
+更多选项，如静默模式、跟随符号链接和文件系统限制，可通过 `kondo --help` 查看。
 
-## Building/Development
+## 构建/开发
 
-To build the cli `kondo` you can run `cargo build` and `cargo run` from the projects root directory.
+要构建 cli `kondo`，你可以在项目的根目录运行 `cargo build` 和 `cargo run`。
 
-To build the gui `kondo-ui` you must first navigate into the `kondo-ui` directory, then you can run `cargo build` and `cargo run`.
+要构建 gui `kondo-ui`，你必须首先导航到 `kondo-ui` 目录，然后你可以运行 `cargo build` 和 `cargo run`。
 
-The output binaries will be located in `target/debug/` or `target/release/` per [Cargo](https://doc.rust-lang.org/cargo/index.html) defaults.
+输出的二进制文件将位于 `target/debug/` 或 `target/release/`，遵循 [Cargo](https://doc.rust-lang.org/cargo/index.html) 默认设置。
 
-## Similar Projects
+## 类似项目
 
-- [The Tin Summer](https://github.com/vmchale/tin-summer)
-- [Detox](https://github.com/whitfin/detox)
-- [Sweep](https://github.com/woubuc/sweep)
-- [npkill](https://github.com/voidcosmos/npkill)
-- [Cargo Cleanall](https://github.com/LeSnake04/cargo-cleanall)
-- [Cargo Sweep](https://github.com/holmgr/cargo-sweep)
-- [Cargo Wipe](https://github.com/mihai-dinculescu/cargo-wipe)
+- [The Tin Summer](https://github.com/vmchale/tin-summer) 
+- [Detox](https://github.com/whitfin/detox) 
+- [Sweep](https://github.com/woubuc/sweep) 
+- [npkill](https://github.com/voidcosmos/npkill) 
+- [Cargo Cleanall](https://github.com/LeSnake04/cargo-cleanall) 
+- [Cargo Sweep](https://github.com/holmgr/cargo-sweep) 
+- [Cargo Wipe](https://github.com/mihai-dinculescu/cargo-wipe) 
 - [cargo-clean-recursive](https://github.com/IgaguriMK/cargo-clean-recursive)

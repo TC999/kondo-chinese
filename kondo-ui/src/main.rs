@@ -271,7 +271,7 @@ fn make_ui() -> impl Widget<AppData> {
                     match data.scan_complete {
                         ScanStatus::Complete => "scan complete ✔️",
                         ScanStatus::InProgrss => "scan in progress... 📡",
-                        ScanStatus::NotStarted => "scan not started",
+                        ScanStatus::NotStarted => "扫描未开始",
                     }
                 )
             }))
