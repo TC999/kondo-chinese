@@ -304,20 +304,20 @@ pub fn print_elapsed(secs: u64) -> String {
     const YEAR: u64 = DAY * 365;
 
     let (unit, fstring) = match secs {
-        secs if secs < MINUTE => (secs as f64, "second"),
-        secs if secs < HOUR * 2 => (secs as f64 / MINUTE as f64, "minute"),
-        secs if secs < DAY * 2 => (secs as f64 / HOUR as f64, "hour"),
-        secs if secs < WEEK * 2 => (secs as f64 / DAY as f64, "day"),
-        secs if secs < MONTH * 2 => (secs as f64 / WEEK as f64, "week"),
-        secs if secs < YEAR * 2 => (secs as f64 / MONTH as f64, "month"),
-        secs => (secs as f64 / YEAR as f64, "year"),
+        secs if secs < MINUTE => (secs as f64, "秒"),
+        secs if secs < HOUR * 2 => (secs as f64 / MINUTE as f64, "分钟"),
+        secs if secs < DAY * 2 => (secs as f64 / HOUR as f64, "小时"),
+        secs if secs < WEEK * 2 => (secs as f64 / DAY as f64, "日"),
+        secs if secs < MONTH * 2 => (secs as f64 / WEEK as f64, "星期"),
+        secs if secs < YEAR * 2 => (secs as f64 / MONTH as f64, "月"),
+        secs => (secs as f64 / YEAR as f64, "年"),
     };
 
     let unit = unit.round();
 
     let plural = if unit == 1.0 { "" } else { "s" };
 
-    format!("{unit:.0} {fstring}{plural} ago")
+    format!("{unit:.0} {fstring}{plural} 之前")
 }
 
 fn is_hidden(entry: &walkdir::DirEntry) -> bool {

@@ -17,7 +17,7 @@ keywords = ["clean", "cleanup", "delete", "free"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-druid = "0.7"
+druid = "0.8.3"
 
 [dependencies.kondo-lib]
 path = "../kondo-lib"

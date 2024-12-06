@@ -74,16 +74,13 @@ fn prepare_directories(dirs: Vec<PathBuf>) -> Result<Vec<PathBuf>, Box<dyn Error
         .filter_map(|path| {
             let exists = path.try_exists().unwrap_or(false);
             if !exists {
-                eprintln!("error: directory {} does not exist", path.to_string_lossy());
+                eprintln!("错误: 文件夹 {} 不存在", path.to_string_lossy());
                 return None;
             }
 
             if let Ok(metadata) = path.metadata() {
                 if metadata.is_file() {
-                    eprintln!(
-                        "error: file supplied but directory expected: {}",
-                        path.to_string_lossy()
-                    );
+                    eprintln!("错误：已提供文件，但找到目录： {}", path.to_string_lossy());
                     return None;
                 }
             }
@@ -105,9 +102,7 @@ impl fmt::Display for ParseAgeFilterError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             ParseAgeFilterError::ParseIntError(e) => e.fmt(f),
-            ParseAgeFilterError::InvalidUnit => {
-                "invalid age unit, must be one of m, h, d, w, M, y".fmt(f)
-            }
+            ParseAgeFilterError::InvalidUnit => "无效年龄单位，必须是 m、h、d、w、M、y 之一".fmt(f),
         }
     }
 }
@@ -238,7 +233,7 @@ fn interactive_prompt(
 
         if quiet == 0 {
             println!(
-                "{} {} project {last_modified}",
+                "{} {} 项目 {last_modified}",
                 &project.name(),
                 project.type_name(),
             );
@@ -254,7 +249,7 @@ fn interactive_prompt(
         } else {
             loop {
                 print!(
-                    "  delete above artifact directories? ([{}]es, [n]o, [a]ll, [q]uit): ",
+                    "  删除上述目录？([{}]是、[n]否、[a]全部、[q]退出): ",
                     {
                         if default {
                             "Y"
@@ -280,13 +275,13 @@ fn interactive_prompt(
                     }
                     "" => {
                         if default {
-                            println!("  defaulting to yes...");
+                            println!("  默认为是...");
                             break true;
                         } else {
-                            println!("  no input, please choose between y, n, a, or q.");
+                            println!("  无输入，请在 “y”、“n”、“a ”或 “q ”中选择。");
                         }
                     }
-                    _ => println!("  invalid choice, please choose between y, n, a, or q."),
+                    _ => println!("  选择无效，请在 “y”、“n”、“a ”或 “q ”中选择。"),
                 }
             }
         };
@@ -294,9 +289,7 @@ fn interactive_prompt(
         if clean_project {
             // TODO: Return an error that indicates a partial failure, not a show stopper
             if let Err(e) = deletes_send.send((project, artifact_bytes)) {
-                eprintln!(
-                    "no further projects will be scanned, error sending to delete thread {e}"
-                );
+                eprintln!("将不再扫描项目，错误发送到删除线程 {e}");
                 break;
             }
         }
@@ -314,13 +307,13 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     if let Some(generator) = opt.generator {
         let mut cmd = Opt::command();
-        eprintln!("Generating completion file for {generator:?}...");
+        eprintln!("为 {generator:?} 生成补全文件...");
         print_completions(generator, &mut cmd);
         return Ok(());
     }
 
     if opt.quiet > 0 && !opt.all {
-        eprintln!("Quiet mode can only be used with --all.");
+        eprintln!("静默模式只能与 --all 一起使用。");
         std::process::exit(1);
     }
 
@@ -368,7 +361,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     let delete_results = match delete_handle.join() {
         Ok(r) => r,
         Err(e) => {
-            eprintln!("error in delete thread, {e:?}");
+            eprintln!("删除线程中的错误，{e:?}");
             std::process::exit(1);
         }
     };
@@ -378,7 +371,7 @@ fn main() -> Result<(), Box<dyn Error>> {
         let bytes_deleted = delete_results.iter().map(|(_, bytes)| bytes).sum();
 
         println!(
-            "Projects cleaned: {}/{}, Bytes deleted: {} / {}",
+            "已清理项目： {}/{}, 已删除字节： {} / {}",
             projects_cleaned,
             total_projects,
             pretty_size(bytes_deleted),
