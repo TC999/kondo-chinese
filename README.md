@@ -1,4 +1,4 @@
-# Kondo 🧹
+# Kondo(今度) 🧹
 
 清理项目中的 `node_modules`、`target`、`build` 等目录。
 
